@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <title>titulo</title>
+        <title>Laravel Course</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Styles -->
-        const mix = require('laravel-mix');
-
-        mix.js('resources/js/app.js', 'public/js')
-        .css('resources/css/app.css', 'public/css');
+        <link rel="stylesheet" href="./resources/css/app.css">
 
     </head>
     <body>
@@ -29,5 +26,7 @@
         @for($i=0; $i < count($arr); $i++)
             <p>{{ $arr[$i]}} - {{$i}}</p>
         @endfor
+
+        <script src="./resources/js/app.js"></script>
     </body>
 </html>
