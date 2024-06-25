@@ -1,32 +1,27 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <title>Laravel Course</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Styles -->
-        <link rel="stylesheet" href="./resources/css/app.css">
+@extends('layouts.main')
 
-    </head>
-    <body>
-        <h1>Hello world laravel</h1>
+@section('title', 'HDC Events')
 
-        @if(10 > 5)
-            <p>True</p>
-        @endif
 
-        <p> {{$nome }} </p>
+@section('content')
+<h1>Algum titulo</h1>
 
-        @if($nome == 'gabiel')
-        <p>o meu nome é {{$nome}} e tenho {{$idade}} anos.</p>
-        @else
-        <p>o meu nome não é {{$nome}} </p>
-        @endif
+@if (10 > 5)
+    <p>condição é true</p>
+@endif
 
-        @for($i=0; $i < count($arr); $i++)
-            <p>{{ $arr[$i]}} - {{$i}}</p>
-        @endfor
+<p>{{$nome}}</p>
 
-        <script src="./resources/js/app.js"></script>
-    </body>
-</html>
+@if ($nome == 'Pedro')
+    <p>O nome é pedro</p>
+@elseif($nome == 'Gabriel')
+    <p>o nome é {{$nome}}</p>
+@else
+    <p>nome n é {{$nome}}</p>
+@endif
+
+@for($i = 0; $i < count($arr); $i++)
+    <p>{{ $arr[$i] }} - {{ $i }} </p>
+@endfor
+
+@endsection
