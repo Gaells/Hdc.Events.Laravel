@@ -20,7 +20,7 @@
                 <img src="/img/events/{{ $event->image }}" alt="{{ $event->title }}">
                 <div class="card-body">
                     <p class="card-date">
-                        10/09/2024
+                        {{ date('d/m/Y', strtotime($event->date)) }}
                     </p>
                     <h5 class="card-title">
                         {{ $event->title }}
@@ -32,6 +32,9 @@
                 </div>
             </div>
         @endforeach
+        @if (count($events) == 0)
+            <p>Não há eventos disponíveis no momento!</p>
+        @endif
     </div>
 </div>
 
