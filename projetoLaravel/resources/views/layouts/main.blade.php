@@ -18,7 +18,6 @@
 
         <!-- CSS da aplicação -->
         <link rel="stylesheet" href="/css/styles.css">
-        <script src="/js/script.js"></script>
 
     </head>
     <body>
@@ -45,12 +44,22 @@
           </div>
         </nav>
       </header>
-      @yield('content')
+      <main>
+        <div class="container-fluid">
+            <div class="row">
+                @if (@session('msg'))
+                    <p class="msg">{{ session('msg') }}</p>
+                @endif
+                @yield('content')
+            </div>
+        </div>
+      </main>
       <footer>
         <p>HDC Events &copy; 2024</p>
       </footer>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="/js/script.js"></script>
     </body>
 </html>
 
