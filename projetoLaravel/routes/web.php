@@ -8,7 +8,7 @@ use App\Http\Controllers\EventController;
 //index mostra todos os registros
 Route::get('/', [EventController::class, 'index']);
 //create, criar registros no banco
-Route::get('/events/create', [EventController::class, 'create']);
+Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
 //show, mostrar um dado especifico
 Route::get('/events/{id}', [EventController::class, 'show']);
 //store, enviar os dados pro banco

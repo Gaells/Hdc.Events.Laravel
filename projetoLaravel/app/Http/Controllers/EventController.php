@@ -63,6 +63,9 @@ class EventController extends Controller
             $event->image = $imageName;
         }
 
+        $user = auth()->user();
+        $event->user_id = $user->id;
+
         $event->save();
 
         // salvo e retorno o usuario para a home
