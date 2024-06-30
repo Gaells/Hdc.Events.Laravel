@@ -206,6 +206,10 @@ header {
     margin-top: 30px;
 }
 
+.dashboard-events-container th {
+    width: 25%;
+}
+
 
 /* Footer */
 footer {
