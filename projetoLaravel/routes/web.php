@@ -6,15 +6,16 @@ use App\Http\Controllers\EventController;
 
 //Padrões do laravel
 //index mostra todos os registros
-Route::get('/', [EventController::class, 'index']);
 //create, criar registros no banco
-Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
 //show, mostrar um dado especifico
-Route::get('/events/{id}', [EventController::class, 'show']);
 //store, enviar os dados pro banco
+Route::get('/', [EventController::class, 'index']);
+Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
+Route::get('/events/{id}', [EventController::class, 'show']);
 Route::post('/events', [EventController::class, 'store']);
-// delete
-Route::delete('/events/{id}', [EventController::class, 'destroy']);
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->middleware('auth');
+Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('auth');
+Route::put('/events/update/{id}', [EventController::class, 'update'])->middleware('auth');
 
 Route::get('/contact', function() {
     return view('contact');
