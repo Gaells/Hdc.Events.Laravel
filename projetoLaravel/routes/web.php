@@ -12,7 +12,9 @@ Route::get('/events/create', [EventController::class, 'create'])->middleware('au
 //show, mostrar um dado especifico
 Route::get('/events/{id}', [EventController::class, 'show']);
 //store, enviar os dados pro banco
-Route::post('events', [EventController::class, 'store']);
+Route::post('/events', [EventController::class, 'store']);
+// delete
+Route::delete('/events/{id}', [EventController::class, 'destroy']);
 
 Route::get('/contact', function() {
     return view('contact');
