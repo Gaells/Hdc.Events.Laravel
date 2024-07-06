@@ -28,3 +28,5 @@ php artisan migrate // criando as migrations no banco
 ![image](https://github.com/Gaells/laravel/assets/105751499/c474d886-648d-4242-8741-bddd7809d801)
 
 
+### Projeto inspirado no curso de Laravel do canal [Hora de Codar](https://www.youtube.com/@MatheusBattisti).
+
