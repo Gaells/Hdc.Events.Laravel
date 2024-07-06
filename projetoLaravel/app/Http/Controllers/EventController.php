@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
@@ -78,10 +79,24 @@ class EventController extends Controller
 
         $event = Event::findOrFail($id);
 
+        $user = auth()->user();
+
+        $hasUserJoined = false;
+
+        if($user) {
+            $userEvents = $user->eventAsParticipant->toArray();
+
+            foreach($userEvents as $userEvent) {
+                if($userEvent['id'] == $id) {
+                    $hasUserJoined = true;
+                }
+            }
+        }
+
         $eventOwner = User::where('id', $event->user_id)->first()->toArray();
 
         //evento cru
-        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
+        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner, 'hasUserJoined' => $hasUserJoined]);
     }
 
     public function dashboard() {
@@ -98,13 +113,20 @@ class EventController extends Controller
         ]);
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
+        // Encontre o evento
+        $event = Event::findOrFail($id);
 
-        Event::findOrFail($id)->delete();
+        // Remova todas as associações de participantes
+        $event->users()->detach();
+
+        // Delete o evento
+        $event->delete();
 
         return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
-
     }
+
 
     public function edit($id) {
         // verifica se o user é o dono do evento na hora de edição acessada via url
@@ -155,6 +177,18 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
 
         return redirect('/dashboard')->with('msg', 'Sua presença está confirmada em ' . $event->title);
+
+    }
+
+    public function leaveEvent($id) {
+
+        $user = auth()->user();
+
+        $user->eventAsParticipant()->detach($id);
+
+        $event = Event::findOrFail($id);
+
+        return redirect('/dashboard')->with('msg', 'Sua presença no evento: ' . $event->title . ' foi removida');
 
     }
 
