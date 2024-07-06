@@ -4,13 +4,12 @@
 > [!NOTE]
 > Conceitos utilizados para criação do Projeto:
 > 1. Rotas / Views.
-> 2. Rotas/views.
-> 3. Uso do template engine do Blade.
-> 4. Uso do MCV (Model/Controller/View).
-> 5. Migrations/Eloquent.
-> 6. Autenticação.
+> 2. Uso do template engine do Blade.
+> 3. Uso do MCV (Model/Controller/View).
+> 4. Migrations/Eloquent.
+> 5. Autenticação.
 > 7. CRUD completo (Criação/Visualização dos Eventos, Atualização dos Eventos, Remoção dos Eventos).
-> 8. Relações do tipo (one to many / many to many ) no banco.
+> 7. Relações do tipo (one to many / many to many ) no banco.
 
 > [!IMPORTANT]
 > Para utilizar este projeto você deve:
