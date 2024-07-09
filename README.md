@@ -1,6 +1,6 @@
 # HDC Events
 
-## Projeto feito com PHP + Laravel com o intiuto de aprender mais sober o framework.
+## Projeto feito com PHP + Laravel com o intiuto de aprender mais sobre o framework.
 > [!NOTE]
 > Conceitos utilizados para criação do Projeto:
 > 1. Rotas / Views.
